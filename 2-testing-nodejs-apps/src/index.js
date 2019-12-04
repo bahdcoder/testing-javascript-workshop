@@ -14,7 +14,7 @@ app.post(
     asyncHandler(require("./controllers/auth.register"))
 )
 
-app.get("/users", asyncHandler(require('./controllers/users')))
+app.get("/users", asyncHandler(require("./controllers/users")))
 
 Mongoose.connect(
     process.env.MONGODB_URL || "mongodb://localhost:27017/testing-nodejs-apps",

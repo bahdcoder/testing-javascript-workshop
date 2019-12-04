@@ -1,5 +1,5 @@
 module.exports = (req, res) => {
-  req.session.destroy(() => {
-    res.redirect('/')
-  })
+    req.session.destroy(() => {
+        res.redirect("/")
+    })
 }
