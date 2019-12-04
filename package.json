@@ -1,20 +1,20 @@
 {
-  "name": "testing-javascript-workshop",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest",
-    "prettier": "prettier --write './**/*.js'"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "jest": "^24.9.0",
-    "prettier": "^1.19.1"
-  },
-  "dependencies": {
-    "bcryptjs": "^2.4.3"
-  }
+    "name": "testing-javascript-workshop",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "prettier": "prettier --write './**/*.{js,json}'"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "jest": "^24.9.0",
+        "prettier": "^1.19.1"
+    },
+    "dependencies": {
+        "bcryptjs": "^2.4.3"
+    }
 }
