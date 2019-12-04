@@ -4,24 +4,24 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 ;(function(global, factory) {
-    typeof exports === "object" && typeof module !== "undefined"
-        ? factory(exports, require("jquery"), require("popper.js"))
-        : typeof define === "function" && define.amd
-        ? define(["exports", "jquery", "popper.js"], factory)
+    typeof exports === 'object' && typeof module !== 'undefined'
+        ? factory(exports, require('jquery'), require('popper.js'))
+        : typeof define === 'function' && define.amd
+        ? define(['exports', 'jquery', 'popper.js'], factory)
         : factory((global.bootstrap = {}), global.jQuery, global.Popper)
 })(this, function(exports, $, Popper) {
-    "use strict"
+    'use strict'
 
-    $ = $ && $.hasOwnProperty("default") ? $["default"] : $
+    $ = $ && $.hasOwnProperty('default') ? $['default'] : $
     Popper =
-        Popper && Popper.hasOwnProperty("default") ? Popper["default"] : Popper
+        Popper && Popper.hasOwnProperty('default') ? Popper['default'] : Popper
 
     function _defineProperties(target, props) {
         for (var i = 0; i < props.length; i++) {
             var descriptor = props[i]
             descriptor.enumerable = descriptor.enumerable || false
             descriptor.configurable = true
-            if ("value" in descriptor) descriptor.writable = true
+            if ('value' in descriptor) descriptor.writable = true
             Object.defineProperty(target, descriptor.key, descriptor)
         }
     }
@@ -52,7 +52,7 @@
             var source = arguments[i] != null ? arguments[i] : {}
             var ownKeys = Object.keys(source)
 
-            if (typeof Object.getOwnPropertySymbols === "function") {
+            if (typeof Object.getOwnPropertySymbols === 'function') {
                 ownKeys = ownKeys.concat(
                     Object.getOwnPropertySymbols(source).filter(function(sym) {
                         return Object.getOwnPropertyDescriptor(
@@ -90,7 +90,7 @@
          * Private TransitionEnd Helpers
          * ------------------------------------------------------------------------
          */
-        var TRANSITION_END = "transitionend"
+        var TRANSITION_END = 'transitionend'
         var MAX_UID = 1000000
         var MILLISECONDS_MULTIPLIER = 1000 // Shoutout AngusCroll (https://goo.gl/pxwQGp)
 
@@ -143,7 +143,7 @@
          */
 
         var Util = {
-            TRANSITION_END: "bsTransitionEnd",
+            TRANSITION_END: 'bsTransitionEnd',
             getUID: function getUID(prefix) {
                 do {
                     // eslint-disable-next-line no-bitwise
@@ -153,10 +153,10 @@
                 return prefix
             },
             getSelectorFromElement: function getSelectorFromElement(element) {
-                var selector = element.getAttribute("data-target")
+                var selector = element.getAttribute('data-target')
 
-                if (!selector || selector === "#") {
-                    selector = element.getAttribute("href") || ""
+                if (!selector || selector === '#') {
+                    selector = element.getAttribute('href') || ''
                 }
 
                 try {
@@ -174,7 +174,7 @@
                 } // Get transition-duration of the element
 
                 var transitionDuration = $$$1(element).css(
-                    "transition-duration"
+                    'transition-duration'
                 )
                 var floatTransitionDuration = parseFloat(transitionDuration) // Return 0 if element or transition duration is not found
 
@@ -182,7 +182,7 @@
                     return 0
                 } // If multiple durations are defined, take the first
 
-                transitionDuration = transitionDuration.split(",")[0]
+                transitionDuration = transitionDuration.split(',')[0]
                 return parseFloat(transitionDuration) * MILLISECONDS_MULTIPLIER
             },
             reflow: function reflow(element) {
@@ -214,13 +214,13 @@
                         var value = config[property]
                         var valueType =
                             value && Util.isElement(value)
-                                ? "element"
+                                ? 'element'
                                 : toType(value)
 
                         if (!new RegExp(expectedTypes).test(valueType)) {
                             throw new Error(
                                 componentName.toUpperCase() +
-                                    ": " +
+                                    ': ' +
                                     ('Option "' +
                                         property +
                                         '" provided type "' +
@@ -252,24 +252,24 @@
          * Constants
          * ------------------------------------------------------------------------
          */
-        var NAME = "alert"
-        var VERSION = "4.1.1"
-        var DATA_KEY = "bs.alert"
-        var EVENT_KEY = "." + DATA_KEY
-        var DATA_API_KEY = ".data-api"
+        var NAME = 'alert'
+        var VERSION = '4.1.1'
+        var DATA_KEY = 'bs.alert'
+        var EVENT_KEY = '.' + DATA_KEY
+        var DATA_API_KEY = '.data-api'
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME]
         var Selector = {
             DISMISS: '[data-dismiss="alert"]'
         }
         var Event = {
-            CLOSE: "close" + EVENT_KEY,
-            CLOSED: "closed" + EVENT_KEY,
-            CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
+            CLOSE: 'close' + EVENT_KEY,
+            CLOSED: 'closed' + EVENT_KEY,
+            CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
         }
         var ClassName = {
-            ALERT: "alert",
-            FADE: "fade",
-            SHOW: "show"
+            ALERT: 'alert',
+            FADE: 'fade',
+            SHOW: 'show'
             /**
              * ------------------------------------------------------------------------
              * Class Definition
@@ -317,7 +317,7 @@
                     }
 
                     if (!parent) {
-                        parent = $$$1(element).closest("." + ClassName.ALERT)[0]
+                        parent = $$$1(element).closest('.' + ClassName.ALERT)[0]
                     }
 
                     return parent
@@ -369,7 +369,7 @@
                             $element.data(DATA_KEY, data)
                         }
 
-                        if (config === "close") {
+                        if (config === 'close') {
                             data[config](this)
                         }
                     })
@@ -387,7 +387,7 @@
 
                 _createClass(Alert, null, [
                     {
-                        key: "VERSION",
+                        key: 'VERSION',
                         get: function get() {
                             return VERSION
                         }
@@ -437,32 +437,32 @@
          * Constants
          * ------------------------------------------------------------------------
          */
-        var NAME = "button"
-        var VERSION = "4.1.1"
-        var DATA_KEY = "bs.button"
-        var EVENT_KEY = "." + DATA_KEY
-        var DATA_API_KEY = ".data-api"
+        var NAME = 'button'
+        var VERSION = '4.1.1'
+        var DATA_KEY = 'bs.button'
+        var EVENT_KEY = '.' + DATA_KEY
+        var DATA_API_KEY = '.data-api'
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME]
         var ClassName = {
-            ACTIVE: "active",
-            BUTTON: "btn",
-            FOCUS: "focus"
+            ACTIVE: 'active',
+            BUTTON: 'btn',
+            FOCUS: 'focus'
         }
         var Selector = {
             DATA_TOGGLE_CARROT: '[data-toggle^="button"]',
             DATA_TOGGLE: '[data-toggle="buttons"]',
-            INPUT: "input",
-            ACTIVE: ".active",
-            BUTTON: ".btn"
+            INPUT: 'input',
+            ACTIVE: '.active',
+            BUTTON: '.btn'
         }
         var Event = {
-            CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY,
+            CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
             FOCUS_BLUR_DATA_API:
-                "focus" +
+                'focus' +
                 EVENT_KEY +
                 DATA_API_KEY +
-                " " +
-                ("blur" + EVENT_KEY + DATA_API_KEY)
+                ' ' +
+                ('blur' + EVENT_KEY + DATA_API_KEY)
             /**
              * ------------------------------------------------------------------------
              * Class Definition
@@ -491,7 +491,7 @@
                         var input = $$$1(this._element).find(Selector.INPUT)[0]
 
                         if (input) {
-                            if (input.type === "radio") {
+                            if (input.type === 'radio') {
                                 if (
                                     input.checked &&
                                     $$$1(this._element).hasClass(
@@ -514,10 +514,10 @@
 
                             if (triggerChangeEvent) {
                                 if (
-                                    input.hasAttribute("disabled") ||
-                                    rootElement.hasAttribute("disabled") ||
-                                    input.classList.contains("disabled") ||
-                                    rootElement.classList.contains("disabled")
+                                    input.hasAttribute('disabled') ||
+                                    rootElement.hasAttribute('disabled') ||
+                                    input.classList.contains('disabled') ||
+                                    rootElement.classList.contains('disabled')
                                 ) {
                                     return
                                 }
@@ -525,7 +525,7 @@
                                 input.checked = !$$$1(this._element).hasClass(
                                     ClassName.ACTIVE
                                 )
-                                $$$1(input).trigger("change")
+                                $$$1(input).trigger('change')
                             }
 
                             input.focus()
@@ -535,7 +535,7 @@
 
                     if (addAriaPressed) {
                         this._element.setAttribute(
-                            "aria-pressed",
+                            'aria-pressed',
                             !$$$1(this._element).hasClass(ClassName.ACTIVE)
                         )
                     }
@@ -559,7 +559,7 @@
                             $$$1(this).data(DATA_KEY, data)
                         }
 
-                        if (config === "toggle") {
+                        if (config === 'toggle') {
                             data[config]()
                         }
                     })
@@ -567,7 +567,7 @@
 
                 _createClass(Button, null, [
                     {
-                        key: "VERSION",
+                        key: 'VERSION',
                         get: function get() {
                             return VERSION
                         }
@@ -593,7 +593,7 @@
                     button = $$$1(button).closest(Selector.BUTTON)
                 }
 
-                Button._jQueryInterface.call($$$1(button), "toggle")
+                Button._jQueryInterface.call($$$1(button), 'toggle')
             })
             .on(
                 Event.FOCUS_BLUR_DATA_API,
@@ -636,11 +636,11 @@
          * Constants
          * ------------------------------------------------------------------------
          */
-        var NAME = "carousel"
-        var VERSION = "4.1.1"
-        var DATA_KEY = "bs.carousel"
-        var EVENT_KEY = "." + DATA_KEY
-        var DATA_API_KEY = ".data-api"
+        var NAME = 'carousel'
+        var VERSION = '4.1.1'
+        var DATA_KEY = 'bs.carousel'
+        var EVENT_KEY = '.' + DATA_KEY
+        var DATA_API_KEY = '.data-api'
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME]
         var ARROW_LEFT_KEYCODE = 37 // KeyboardEvent.which value for left arrow key
 
@@ -652,49 +652,49 @@
             interval: 5000,
             keyboard: true,
             slide: false,
-            pause: "hover",
+            pause: 'hover',
             wrap: true
         }
         var DefaultType = {
-            interval: "(number|boolean)",
-            keyboard: "boolean",
-            slide: "(boolean|string)",
-            pause: "(string|boolean)",
-            wrap: "boolean"
+            interval: '(number|boolean)',
+            keyboard: 'boolean',
+            slide: '(boolean|string)',
+            pause: '(string|boolean)',
+            wrap: 'boolean'
         }
         var Direction = {
-            NEXT: "next",
-            PREV: "prev",
-            LEFT: "left",
-            RIGHT: "right"
+            NEXT: 'next',
+            PREV: 'prev',
+            LEFT: 'left',
+            RIGHT: 'right'
         }
         var Event = {
-            SLIDE: "slide" + EVENT_KEY,
-            SLID: "slid" + EVENT_KEY,
-            KEYDOWN: "keydown" + EVENT_KEY,
-            MOUSEENTER: "mouseenter" + EVENT_KEY,
-            MOUSELEAVE: "mouseleave" + EVENT_KEY,
-            TOUCHEND: "touchend" + EVENT_KEY,
-            LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY,
-            CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
+            SLIDE: 'slide' + EVENT_KEY,
+            SLID: 'slid' + EVENT_KEY,
+            KEYDOWN: 'keydown' + EVENT_KEY,
+            MOUSEENTER: 'mouseenter' + EVENT_KEY,
+            MOUSELEAVE: 'mouseleave' + EVENT_KEY,
+            TOUCHEND: 'touchend' + EVENT_KEY,
+            LOAD_DATA_API: 'load' + EVENT_KEY + DATA_API_KEY,
+            CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
         }
         var ClassName = {
-            CAROUSEL: "carousel",
-            ACTIVE: "active",
-            SLIDE: "slide",
-            RIGHT: "carousel-item-right",
-            LEFT: "carousel-item-left",
-            NEXT: "carousel-item-next",
-            PREV: "carousel-item-prev",
-            ITEM: "carousel-item"
+            CAROUSEL: 'carousel',
+            ACTIVE: 'active',
+            SLIDE: 'slide',
+            RIGHT: 'carousel-item-right',
+            LEFT: 'carousel-item-left',
+            NEXT: 'carousel-item-next',
+            PREV: 'carousel-item-prev',
+            ITEM: 'carousel-item'
         }
         var Selector = {
-            ACTIVE: ".active",
-            ACTIVE_ITEM: ".active.carousel-item",
-            ITEM: ".carousel-item",
-            NEXT_PREV: ".carousel-item-next, .carousel-item-prev",
-            INDICATORS: ".carousel-indicators",
-            DATA_SLIDE: "[data-slide], [data-slide-to]",
+            ACTIVE: '.active',
+            ACTIVE_ITEM: '.active.carousel-item',
+            ITEM: '.carousel-item',
+            NEXT_PREV: '.carousel-item-next, .carousel-item-prev',
+            INDICATORS: '.carousel-indicators',
+            DATA_SLIDE: '[data-slide], [data-slide-to]',
             DATA_RIDE: '[data-ride="carousel"]'
             /**
              * ------------------------------------------------------------------------
@@ -736,8 +736,8 @@
                     // or the carousel or its parent isn't visible
                     if (
                         !document.hidden &&
-                        $$$1(this._element).is(":visible") &&
-                        $$$1(this._element).css("visibility") !== "hidden"
+                        $$$1(this._element).is(':visible') &&
+                        $$$1(this._element).css('visibility') !== 'hidden'
                     ) {
                         this.next()
                     }
@@ -844,7 +844,7 @@
                         })
                     }
 
-                    if (this._config.pause === "hover") {
+                    if (this._config.pause === 'hover') {
                         $$$1(this._element)
                             .on(Event.MOUSEENTER, function(event) {
                                 return _this2.pause(event)
@@ -853,7 +853,7 @@
                                 return _this2.cycle(event)
                             })
 
-                        if ("ontouchstart" in document.documentElement) {
+                        if ('ontouchstart' in document.documentElement) {
                             // If it's a touch-enabled device, mouseenter/leave are fired as
                             // part of the mouse compatibility events on first tap - the carousel
                             // would stop cycling until user tapped out of it;
@@ -1052,15 +1052,15 @@
                                 $$$1(nextElement)
                                     .removeClass(
                                         directionalClassName +
-                                            " " +
+                                            ' ' +
                                             orderClassName
                                     )
                                     .addClass(ClassName.ACTIVE)
                                 $$$1(activeElement).removeClass(
                                     ClassName.ACTIVE +
-                                        " " +
+                                        ' ' +
                                         orderClassName +
-                                        " " +
+                                        ' ' +
                                         directionalClassName
                                 )
                                 _this3._isSliding = false
@@ -1093,22 +1093,22 @@
                             $$$1(this).data()
                         )
 
-                        if (typeof config === "object") {
+                        if (typeof config === 'object') {
                             _config = _objectSpread({}, _config, config)
                         }
 
                         var action =
-                            typeof config === "string" ? config : _config.slide
+                            typeof config === 'string' ? config : _config.slide
 
                         if (!data) {
                             data = new Carousel(this, _config)
                             $$$1(this).data(DATA_KEY, data)
                         }
 
-                        if (typeof config === "number") {
+                        if (typeof config === 'number') {
                             data.to(config)
-                        } else if (typeof action === "string") {
-                            if (typeof data[action] === "undefined") {
+                        } else if (typeof action === 'string') {
+                            if (typeof data[action] === 'undefined') {
                                 throw new TypeError(
                                     'No method named "' + action + '"'
                                 )
@@ -1143,7 +1143,7 @@
                         $$$1(this).data()
                     )
 
-                    var slideIndex = this.getAttribute("data-slide-to")
+                    var slideIndex = this.getAttribute('data-slide-to')
 
                     if (slideIndex) {
                         config.interval = false
@@ -1162,13 +1162,13 @@
 
                 _createClass(Carousel, null, [
                     {
-                        key: "VERSION",
+                        key: 'VERSION',
                         get: function get() {
                             return VERSION
                         }
                     },
                     {
-                        key: "Default",
+                        key: 'Default',
                         get: function get() {
                             return Default
                         }
@@ -1225,39 +1225,39 @@
          * Constants
          * ------------------------------------------------------------------------
          */
-        var NAME = "collapse"
-        var VERSION = "4.1.1"
-        var DATA_KEY = "bs.collapse"
-        var EVENT_KEY = "." + DATA_KEY
-        var DATA_API_KEY = ".data-api"
+        var NAME = 'collapse'
+        var VERSION = '4.1.1'
+        var DATA_KEY = 'bs.collapse'
+        var EVENT_KEY = '.' + DATA_KEY
+        var DATA_API_KEY = '.data-api'
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME]
         var Default = {
             toggle: true,
-            parent: ""
+            parent: ''
         }
         var DefaultType = {
-            toggle: "boolean",
-            parent: "(string|element)"
+            toggle: 'boolean',
+            parent: '(string|element)'
         }
         var Event = {
-            SHOW: "show" + EVENT_KEY,
-            SHOWN: "shown" + EVENT_KEY,
-            HIDE: "hide" + EVENT_KEY,
-            HIDDEN: "hidden" + EVENT_KEY,
-            CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
+            SHOW: 'show' + EVENT_KEY,
+            SHOWN: 'shown' + EVENT_KEY,
+            HIDE: 'hide' + EVENT_KEY,
+            HIDDEN: 'hidden' + EVENT_KEY,
+            CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
         }
         var ClassName = {
-            SHOW: "show",
-            COLLAPSE: "collapse",
-            COLLAPSING: "collapsing",
-            COLLAPSED: "collapsed"
+            SHOW: 'show',
+            COLLAPSE: 'collapse',
+            COLLAPSING: 'collapsing',
+            COLLAPSED: 'collapsed'
         }
         var Dimension = {
-            WIDTH: "width",
-            HEIGHT: "height"
+            WIDTH: 'width',
+            HEIGHT: 'height'
         }
         var Selector = {
-            ACTIVES: ".show, .collapsing",
+            ACTIVES: '.show, .collapsing',
             DATA_TOGGLE: '[data-toggle="collapse"]'
             /**
              * ------------------------------------------------------------------------
@@ -1375,7 +1375,7 @@
                     if (actives) {
                         Collapse._jQueryInterface.call(
                             $$$1(actives).not(this._selector),
-                            "hide"
+                            'hide'
                         )
 
                         if (!activesData) {
@@ -1393,7 +1393,7 @@
                     if (this._triggerArray.length > 0) {
                         $$$1(this._triggerArray)
                             .removeClass(ClassName.COLLAPSED)
-                            .attr("aria-expanded", true)
+                            .attr('aria-expanded', true)
                     }
 
                     this.setTransitioning(true)
@@ -1403,7 +1403,7 @@
                             .removeClass(ClassName.COLLAPSING)
                             .addClass(ClassName.COLLAPSE)
                             .addClass(ClassName.SHOW)
-                        _this._element.style[dimension] = ""
+                        _this._element.style[dimension] = ''
 
                         _this.setTransitioning(false)
 
@@ -1412,7 +1412,7 @@
 
                     var capitalizedDimension =
                         dimension[0].toUpperCase() + dimension.slice(1)
-                    var scrollSize = "scroll" + capitalizedDimension
+                    var scrollSize = 'scroll' + capitalizedDimension
                     var transitionDuration = Util.getTransitionDurationFromElement(
                         this._element
                     )
@@ -1420,7 +1420,7 @@
                         .one(Util.TRANSITION_END, complete)
                         .emulateTransitionEnd(transitionDuration)
                     this._element.style[dimension] =
-                        this._element[scrollSize] + "px"
+                        this._element[scrollSize] + 'px'
                 }
 
                 _proto.hide = function hide() {
@@ -1443,7 +1443,7 @@
                     var dimension = this._getDimension()
 
                     this._element.style[dimension] =
-                        this._element.getBoundingClientRect()[dimension] + "px"
+                        this._element.getBoundingClientRect()[dimension] + 'px'
                     Util.reflow(this._element)
                     $$$1(this._element)
                         .addClass(ClassName.COLLAPSING)
@@ -1461,7 +1461,7 @@
                                 if (!$elem.hasClass(ClassName.SHOW)) {
                                     $$$1(trigger)
                                         .addClass(ClassName.COLLAPSED)
-                                        .attr("aria-expanded", false)
+                                        .attr('aria-expanded', false)
                                 }
                             }
                         }
@@ -1478,7 +1478,7 @@
                             .trigger(Event.HIDDEN)
                     }
 
-                    this._element.style[dimension] = ""
+                    this._element.style[dimension] = ''
                     var transitionDuration = Util.getTransitionDurationFromElement(
                         this._element
                     )
@@ -1523,7 +1523,7 @@
                     if (Util.isElement(this._config.parent)) {
                         parent = this._config.parent // It's a jQuery object
 
-                        if (typeof this._config.parent.jquery !== "undefined") {
+                        if (typeof this._config.parent.jquery !== 'undefined') {
                             parent = this._config.parent[0]
                         }
                     } else {
@@ -1555,7 +1555,7 @@
                         if (triggerArray.length > 0) {
                             $$$1(triggerArray)
                                 .toggleClass(ClassName.COLLAPSED, !isOpen)
-                                .attr("aria-expanded", isOpen)
+                                .attr('aria-expanded', isOpen)
                         }
                     }
                 } // Static
@@ -1576,7 +1576,7 @@
                             {},
                             Default,
                             $this.data(),
-                            typeof config === "object" && config ? config : {}
+                            typeof config === 'object' && config ? config : {}
                         )
 
                         if (
@@ -1592,8 +1592,8 @@
                             $this.data(DATA_KEY, data)
                         }
 
-                        if (typeof config === "string") {
-                            if (typeof data[config] === "undefined") {
+                        if (typeof config === 'string') {
+                            if (typeof data[config] === 'undefined') {
                                 throw new TypeError(
                                     'No method named "' + config + '"'
                                 )
@@ -1606,13 +1606,13 @@
 
                 _createClass(Collapse, null, [
                     {
-                        key: "VERSION",
+                        key: 'VERSION',
                         get: function get() {
                             return VERSION
                         }
                     },
                     {
-                        key: "Default",
+                        key: 'Default',
                         get: function get() {
                             return Default
                         }
@@ -1631,7 +1631,7 @@
             event
         ) {
             // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
-            if (event.currentTarget.tagName === "A") {
+            if (event.currentTarget.tagName === 'A') {
                 event.preventDefault()
             }
 
@@ -1640,7 +1640,7 @@
             $$$1(selector).each(function() {
                 var $target = $$$1(this)
                 var data = $target.data(DATA_KEY)
-                var config = data ? "toggle" : $trigger.data()
+                var config = data ? 'toggle' : $trigger.data()
 
                 Collapse._jQueryInterface.call($target, config)
             })
@@ -1675,11 +1675,11 @@
          * Constants
          * ------------------------------------------------------------------------
          */
-        var NAME = "dropdown"
-        var VERSION = "4.1.1"
-        var DATA_KEY = "bs.dropdown"
-        var EVENT_KEY = "." + DATA_KEY
-        var DATA_API_KEY = ".data-api"
+        var NAME = 'dropdown'
+        var VERSION = '4.1.1'
+        var DATA_KEY = 'bs.dropdown'
+        var EVENT_KEY = '.' + DATA_KEY
+        var DATA_API_KEY = '.data-api'
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME]
         var ESCAPE_KEYCODE = 27 // KeyboardEvent.which value for Escape (Esc) key
 
@@ -1694,59 +1694,59 @@
         var RIGHT_MOUSE_BUTTON_WHICH = 3 // MouseEvent.which value for the right button (assuming a right-handed mouse)
 
         var REGEXP_KEYDOWN = new RegExp(
-            ARROW_UP_KEYCODE + "|" + ARROW_DOWN_KEYCODE + "|" + ESCAPE_KEYCODE
+            ARROW_UP_KEYCODE + '|' + ARROW_DOWN_KEYCODE + '|' + ESCAPE_KEYCODE
         )
         var Event = {
-            HIDE: "hide" + EVENT_KEY,
-            HIDDEN: "hidden" + EVENT_KEY,
-            SHOW: "show" + EVENT_KEY,
-            SHOWN: "shown" + EVENT_KEY,
-            CLICK: "click" + EVENT_KEY,
-            CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY,
-            KEYDOWN_DATA_API: "keydown" + EVENT_KEY + DATA_API_KEY,
-            KEYUP_DATA_API: "keyup" + EVENT_KEY + DATA_API_KEY
+            HIDE: 'hide' + EVENT_KEY,
+            HIDDEN: 'hidden' + EVENT_KEY,
+            SHOW: 'show' + EVENT_KEY,
+            SHOWN: 'shown' + EVENT_KEY,
+            CLICK: 'click' + EVENT_KEY,
+            CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
+            KEYDOWN_DATA_API: 'keydown' + EVENT_KEY + DATA_API_KEY,
+            KEYUP_DATA_API: 'keyup' + EVENT_KEY + DATA_API_KEY
         }
         var ClassName = {
-            DISABLED: "disabled",
-            SHOW: "show",
-            DROPUP: "dropup",
-            DROPRIGHT: "dropright",
-            DROPLEFT: "dropleft",
-            MENURIGHT: "dropdown-menu-right",
-            MENULEFT: "dropdown-menu-left",
-            POSITION_STATIC: "position-static"
+            DISABLED: 'disabled',
+            SHOW: 'show',
+            DROPUP: 'dropup',
+            DROPRIGHT: 'dropright',
+            DROPLEFT: 'dropleft',
+            MENURIGHT: 'dropdown-menu-right',
+            MENULEFT: 'dropdown-menu-left',
+            POSITION_STATIC: 'position-static'
         }
         var Selector = {
             DATA_TOGGLE: '[data-toggle="dropdown"]',
-            FORM_CHILD: ".dropdown form",
-            MENU: ".dropdown-menu",
-            NAVBAR_NAV: ".navbar-nav",
+            FORM_CHILD: '.dropdown form',
+            MENU: '.dropdown-menu',
+            NAVBAR_NAV: '.navbar-nav',
             VISIBLE_ITEMS:
-                ".dropdown-menu .dropdown-item:not(.disabled):not(:disabled)"
+                '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'
         }
         var AttachmentMap = {
-            TOP: "top-start",
-            TOPEND: "top-end",
-            BOTTOM: "bottom-start",
-            BOTTOMEND: "bottom-end",
-            RIGHT: "right-start",
-            RIGHTEND: "right-end",
-            LEFT: "left-start",
-            LEFTEND: "left-end"
+            TOP: 'top-start',
+            TOPEND: 'top-end',
+            BOTTOM: 'bottom-start',
+            BOTTOMEND: 'bottom-end',
+            RIGHT: 'right-start',
+            RIGHTEND: 'right-end',
+            LEFT: 'left-start',
+            LEFTEND: 'left-end'
         }
         var Default = {
             offset: 0,
             flip: true,
-            boundary: "scrollParent",
-            reference: "toggle",
-            display: "dynamic"
+            boundary: 'scrollParent',
+            reference: 'toggle',
+            display: 'dynamic'
         }
         var DefaultType = {
-            offset: "(number|string|function)",
-            flip: "boolean",
-            boundary: "(string|element)",
-            reference: "(string|element)",
-            display: "string"
+            offset: '(number|string|function)',
+            flip: 'boolean',
+            boundary: '(string|element)',
+            reference: '(string|element)',
+            display: 'string'
             /**
              * ------------------------------------------------------------------------
              * Class Definition
@@ -1803,22 +1803,22 @@
                          * Check for Popper dependency
                          * Popper - https://popper.js.org
                          */
-                        if (typeof Popper === "undefined") {
+                        if (typeof Popper === 'undefined') {
                             throw new TypeError(
-                                "Bootstrap dropdown require Popper.js (https://popper.js.org)"
+                                'Bootstrap dropdown require Popper.js (https://popper.js.org)'
                             )
                         }
 
                         var referenceElement = this._element
 
-                        if (this._config.reference === "parent") {
+                        if (this._config.reference === 'parent') {
                             referenceElement = parent
                         } else if (Util.isElement(this._config.reference)) {
                             referenceElement = this._config.reference // Check if it's jQuery element
 
                             if (
                                 typeof this._config.reference.jquery !==
-                                "undefined"
+                                'undefined'
                             ) {
                                 referenceElement = this._config.reference[0]
                             }
@@ -1826,7 +1826,7 @@
                         // to allow the menu to "escape" the scroll parent's boundaries
                         // https://github.com/twbs/bootstrap/issues/24251
 
-                        if (this._config.boundary !== "scrollParent") {
+                        if (this._config.boundary !== 'scrollParent') {
                             $$$1(parent).addClass(ClassName.POSITION_STATIC)
                         }
 
@@ -1841,17 +1841,17 @@
                     // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
                     if (
-                        "ontouchstart" in document.documentElement &&
+                        'ontouchstart' in document.documentElement &&
                         $$$1(parent).closest(Selector.NAVBAR_NAV).length === 0
                     ) {
                         $$$1(document.body)
                             .children()
-                            .on("mouseover", null, $$$1.noop)
+                            .on('mouseover', null, $$$1.noop)
                     }
 
                     this._element.focus()
 
-                    this._element.setAttribute("aria-expanded", true)
+                    this._element.setAttribute('aria-expanded', true)
 
                     $$$1(this._menu).toggleClass(ClassName.SHOW)
                     $$$1(parent)
@@ -1940,7 +1940,7 @@
                 }
 
                 _proto._detectNavbar = function _detectNavbar() {
-                    return $$$1(this._element).closest(".navbar").length > 0
+                    return $$$1(this._element).closest('.navbar').length > 0
                 }
 
                 _proto._getPopperConfig = function _getPopperConfig() {
@@ -1948,7 +1948,7 @@
 
                     var offsetConf = {}
 
-                    if (typeof this._config.offset === "function") {
+                    if (typeof this._config.offset === 'function') {
                         offsetConf.fn = function(data) {
                             data.offsets = _objectSpread(
                                 {},
@@ -1974,7 +1974,7 @@
                         } // Disable Popper.js if we have a static display
                     }
 
-                    if (this._config.display === "static") {
+                    if (this._config.display === 'static') {
                         popperConfig.modifiers.applyStyle = {
                             enabled: false
                         }
@@ -1987,15 +1987,15 @@
                     return this.each(function() {
                         var data = $$$1(this).data(DATA_KEY)
 
-                        var _config = typeof config === "object" ? config : null
+                        var _config = typeof config === 'object' ? config : null
 
                         if (!data) {
                             data = new Dropdown(this, _config)
                             $$$1(this).data(DATA_KEY, data)
                         }
 
-                        if (typeof config === "string") {
-                            if (typeof data[config] === "undefined") {
+                        if (typeof config === 'string') {
+                            if (typeof data[config] === 'undefined') {
                                 throw new TypeError(
                                     'No method named "' + config + '"'
                                 )
@@ -2010,7 +2010,7 @@
                     if (
                         event &&
                         (event.which === RIGHT_MOUSE_BUTTON_WHICH ||
-                            (event.type === "keyup" &&
+                            (event.type === 'keyup' &&
                                 event.which !== TAB_KEYCODE))
                     ) {
                         return
@@ -2038,9 +2038,9 @@
 
                         if (
                             event &&
-                            ((event.type === "click" &&
+                            ((event.type === 'click' &&
                                 /input|textarea/i.test(event.target.tagName)) ||
-                                (event.type === "keyup" &&
+                                (event.type === 'keyup' &&
                                     event.which === TAB_KEYCODE)) &&
                             $$$1.contains(parent, event.target)
                         ) {
@@ -2055,13 +2055,13 @@
                         } // If this is a touch-enabled device we remove the extra
                         // empty mouseover listeners we added for iOS support
 
-                        if ("ontouchstart" in document.documentElement) {
+                        if ('ontouchstart' in document.documentElement) {
                             $$$1(document.body)
                                 .children()
-                                .off("mouseover", null, $$$1.noop)
+                                .off('mouseover', null, $$$1.noop)
                         }
 
-                        toggles[i].setAttribute("aria-expanded", "false")
+                        toggles[i].setAttribute('aria-expanded', 'false')
                         $$$1(dropdownMenu).removeClass(ClassName.SHOW)
                         $$$1(parent)
                             .removeClass(ClassName.SHOW)
@@ -2131,10 +2131,10 @@
                             var toggle = $$$1(parent).find(
                                 Selector.DATA_TOGGLE
                             )[0]
-                            $$$1(toggle).trigger("focus")
+                            $$$1(toggle).trigger('focus')
                         }
 
-                        $$$1(this).trigger("click")
+                        $$$1(this).trigger('click')
                         return
                     }
 
@@ -2170,19 +2170,19 @@
 
                 _createClass(Dropdown, null, [
                     {
-                        key: "VERSION",
+                        key: 'VERSION',
                         get: function get() {
                             return VERSION
                         }
                     },
                     {
-                        key: "Default",
+                        key: 'Default',
                         get: function get() {
                             return Default
                         }
                     },
                     {
-                        key: "DefaultType",
+                        key: 'DefaultType',
                         get: function get() {
                             return DefaultType
                         }
@@ -2209,14 +2209,14 @@
                 Dropdown._dataApiKeydownHandler
             )
             .on(
-                Event.CLICK_DATA_API + " " + Event.KEYUP_DATA_API,
+                Event.CLICK_DATA_API + ' ' + Event.KEYUP_DATA_API,
                 Dropdown._clearMenus
             )
             .on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function(event) {
                 event.preventDefault()
                 event.stopPropagation()
 
-                Dropdown._jQueryInterface.call($$$1(this), "toggle")
+                Dropdown._jQueryInterface.call($$$1(this), 'toggle')
             })
             .on(Event.CLICK_DATA_API, Selector.FORM_CHILD, function(e) {
                 e.stopPropagation()
@@ -2251,11 +2251,11 @@
          * Constants
          * ------------------------------------------------------------------------
          */
-        var NAME = "modal"
-        var VERSION = "4.1.1"
-        var DATA_KEY = "bs.modal"
-        var EVENT_KEY = "." + DATA_KEY
-        var DATA_API_KEY = ".data-api"
+        var NAME = 'modal'
+        var VERSION = '4.1.1'
+        var DATA_KEY = 'bs.modal'
+        var EVENT_KEY = '.' + DATA_KEY
+        var DATA_API_KEY = '.data-api'
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME]
         var ESCAPE_KEYCODE = 27 // KeyboardEvent.which value for Escape (Esc) key
 
@@ -2266,38 +2266,38 @@
             show: true
         }
         var DefaultType = {
-            backdrop: "(boolean|string)",
-            keyboard: "boolean",
-            focus: "boolean",
-            show: "boolean"
+            backdrop: '(boolean|string)',
+            keyboard: 'boolean',
+            focus: 'boolean',
+            show: 'boolean'
         }
         var Event = {
-            HIDE: "hide" + EVENT_KEY,
-            HIDDEN: "hidden" + EVENT_KEY,
-            SHOW: "show" + EVENT_KEY,
-            SHOWN: "shown" + EVENT_KEY,
-            FOCUSIN: "focusin" + EVENT_KEY,
-            RESIZE: "resize" + EVENT_KEY,
-            CLICK_DISMISS: "click.dismiss" + EVENT_KEY,
-            KEYDOWN_DISMISS: "keydown.dismiss" + EVENT_KEY,
-            MOUSEUP_DISMISS: "mouseup.dismiss" + EVENT_KEY,
-            MOUSEDOWN_DISMISS: "mousedown.dismiss" + EVENT_KEY,
-            CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
+            HIDE: 'hide' + EVENT_KEY,
+            HIDDEN: 'hidden' + EVENT_KEY,
+            SHOW: 'show' + EVENT_KEY,
+            SHOWN: 'shown' + EVENT_KEY,
+            FOCUSIN: 'focusin' + EVENT_KEY,
+            RESIZE: 'resize' + EVENT_KEY,
+            CLICK_DISMISS: 'click.dismiss' + EVENT_KEY,
+            KEYDOWN_DISMISS: 'keydown.dismiss' + EVENT_KEY,
+            MOUSEUP_DISMISS: 'mouseup.dismiss' + EVENT_KEY,
+            MOUSEDOWN_DISMISS: 'mousedown.dismiss' + EVENT_KEY,
+            CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
         }
         var ClassName = {
-            SCROLLBAR_MEASURER: "modal-scrollbar-measure",
-            BACKDROP: "modal-backdrop",
-            OPEN: "modal-open",
-            FADE: "fade",
-            SHOW: "show"
+            SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
+            BACKDROP: 'modal-backdrop',
+            OPEN: 'modal-open',
+            FADE: 'fade',
+            SHOW: 'show'
         }
         var Selector = {
-            DIALOG: ".modal-dialog",
+            DIALOG: '.modal-dialog',
             DATA_TOGGLE: '[data-toggle="modal"]',
             DATA_DISMISS: '[data-dismiss="modal"]',
-            FIXED_CONTENT: ".fixed-top, .fixed-bottom, .is-fixed, .sticky-top",
-            STICKY_CONTENT: ".sticky-top",
-            NAVBAR_TOGGLER: ".navbar-toggler"
+            FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
+            STICKY_CONTENT: '.sticky-top',
+            NAVBAR_TOGGLER: '.navbar-toggler'
             /**
              * ------------------------------------------------------------------------
              * Class Definition
@@ -2475,9 +2475,9 @@
                         document.body.appendChild(this._element)
                     }
 
-                    this._element.style.display = "block"
+                    this._element.style.display = 'block'
 
-                    this._element.removeAttribute("aria-hidden")
+                    this._element.removeAttribute('aria-hidden')
 
                     this._element.scrollTop = 0
 
@@ -2566,9 +2566,9 @@
                 _proto._hideModal = function _hideModal() {
                     var _this7 = this
 
-                    this._element.style.display = "none"
+                    this._element.style.display = 'none'
 
-                    this._element.setAttribute("aria-hidden", true)
+                    this._element.setAttribute('aria-hidden', true)
 
                     this._isTransitioning = false
 
@@ -2595,10 +2595,10 @@
 
                     var animate = $$$1(this._element).hasClass(ClassName.FADE)
                         ? ClassName.FADE
-                        : ""
+                        : ''
 
                     if (this._isShown && this._config.backdrop) {
-                        this._backdrop = document.createElement("div")
+                        this._backdrop = document.createElement('div')
                         this._backdrop.className = ClassName.BACKDROP
 
                         if (animate) {
@@ -2618,7 +2618,7 @@
                                 return
                             }
 
-                            if (_this8._config.backdrop === "static") {
+                            if (_this8._config.backdrop === 'static') {
                                 _this8._element.focus()
                             } else {
                                 _this8.hide()
@@ -2685,18 +2685,18 @@
 
                     if (!this._isBodyOverflowing && isModalOverflowing) {
                         this._element.style.paddingLeft =
-                            this._scrollbarWidth + "px"
+                            this._scrollbarWidth + 'px'
                     }
 
                     if (this._isBodyOverflowing && !isModalOverflowing) {
                         this._element.style.paddingRight =
-                            this._scrollbarWidth + "px"
+                            this._scrollbarWidth + 'px'
                     }
                 }
 
                 _proto._resetAdjustments = function _resetAdjustments() {
-                    this._element.style.paddingLeft = ""
-                    this._element.style.paddingRight = ""
+                    this._element.style.paddingLeft = ''
+                    this._element.style.paddingRight = ''
                 }
 
                 _proto._checkScrollbar = function _checkScrollbar() {
@@ -2720,15 +2720,15 @@
                             var actualPadding = $$$1(element)[0].style
                                 .paddingRight
                             var calculatedPadding = $$$1(element).css(
-                                "padding-right"
+                                'padding-right'
                             )
                             $$$1(element)
-                                .data("padding-right", actualPadding)
+                                .data('padding-right', actualPadding)
                                 .css(
-                                    "padding-right",
+                                    'padding-right',
                                     parseFloat(calculatedPadding) +
                                         _this9._scrollbarWidth +
-                                        "px"
+                                        'px'
                                 )
                         }) // Adjust sticky content margin
 
@@ -2739,15 +2739,15 @@
                             var actualMargin = $$$1(element)[0].style
                                 .marginRight
                             var calculatedMargin = $$$1(element).css(
-                                "margin-right"
+                                'margin-right'
                             )
                             $$$1(element)
-                                .data("margin-right", actualMargin)
+                                .data('margin-right', actualMargin)
                                 .css(
-                                    "margin-right",
+                                    'margin-right',
                                     parseFloat(calculatedMargin) -
                                         _this9._scrollbarWidth +
-                                        "px"
+                                        'px'
                                 )
                         }) // Adjust navbar-toggler margin
 
@@ -2758,29 +2758,29 @@
                             var actualMargin = $$$1(element)[0].style
                                 .marginRight
                             var calculatedMargin = $$$1(element).css(
-                                "margin-right"
+                                'margin-right'
                             )
                             $$$1(element)
-                                .data("margin-right", actualMargin)
+                                .data('margin-right', actualMargin)
                                 .css(
-                                    "margin-right",
+                                    'margin-right',
                                     parseFloat(calculatedMargin) +
                                         _this9._scrollbarWidth +
-                                        "px"
+                                        'px'
                                 )
                         }) // Adjust body padding
 
                         var actualPadding = document.body.style.paddingRight
                         var calculatedPadding = $$$1(document.body).css(
-                            "padding-right"
+                            'padding-right'
                         )
                         $$$1(document.body)
-                            .data("padding-right", actualPadding)
+                            .data('padding-right', actualPadding)
                             .css(
-                                "padding-right",
+                                'padding-right',
                                 parseFloat(calculatedPadding) +
                                     this._scrollbarWidth +
-                                    "px"
+                                    'px'
                             )
                     }
                 }
@@ -2788,39 +2788,39 @@
                 _proto._resetScrollbar = function _resetScrollbar() {
                     // Restore fixed content padding
                     $$$1(Selector.FIXED_CONTENT).each(function(index, element) {
-                        var padding = $$$1(element).data("padding-right")
+                        var padding = $$$1(element).data('padding-right')
 
-                        if (typeof padding !== "undefined") {
+                        if (typeof padding !== 'undefined') {
                             $$$1(element)
-                                .css("padding-right", padding)
-                                .removeData("padding-right")
+                                .css('padding-right', padding)
+                                .removeData('padding-right')
                         }
                     }) // Restore sticky content and navbar-toggler margin
 
                     $$$1(
-                        Selector.STICKY_CONTENT + ", " + Selector.NAVBAR_TOGGLER
+                        Selector.STICKY_CONTENT + ', ' + Selector.NAVBAR_TOGGLER
                     ).each(function(index, element) {
-                        var margin = $$$1(element).data("margin-right")
+                        var margin = $$$1(element).data('margin-right')
 
-                        if (typeof margin !== "undefined") {
+                        if (typeof margin !== 'undefined') {
                             $$$1(element)
-                                .css("margin-right", margin)
-                                .removeData("margin-right")
+                                .css('margin-right', margin)
+                                .removeData('margin-right')
                         }
                     }) // Restore body padding
 
-                    var padding = $$$1(document.body).data("padding-right")
+                    var padding = $$$1(document.body).data('padding-right')
 
-                    if (typeof padding !== "undefined") {
+                    if (typeof padding !== 'undefined') {
                         $$$1(document.body)
-                            .css("padding-right", padding)
-                            .removeData("padding-right")
+                            .css('padding-right', padding)
+                            .removeData('padding-right')
                     }
                 }
 
                 _proto._getScrollbarWidth = function _getScrollbarWidth() {
                     // thx d.walsh
-                    var scrollDiv = document.createElement("div")
+                    var scrollDiv = document.createElement('div')
                     scrollDiv.className = ClassName.SCROLLBAR_MEASURER
                     document.body.appendChild(scrollDiv)
                     var scrollbarWidth =
@@ -2841,7 +2841,7 @@
                             {},
                             Default,
                             $$$1(this).data(),
-                            typeof config === "object" && config ? config : {}
+                            typeof config === 'object' && config ? config : {}
                         )
 
                         if (!data) {
@@ -2849,8 +2849,8 @@
                             $$$1(this).data(DATA_KEY, data)
                         }
 
-                        if (typeof config === "string") {
-                            if (typeof data[config] === "undefined") {
+                        if (typeof config === 'string') {
+                            if (typeof data[config] === 'undefined') {
                                 throw new TypeError(
                                     'No method named "' + config + '"'
                                 )
@@ -2865,13 +2865,13 @@
 
                 _createClass(Modal, null, [
                     {
-                        key: "VERSION",
+                        key: 'VERSION',
                         get: function get() {
                             return VERSION
                         }
                     },
                     {
-                        key: "Default",
+                        key: 'Default',
                         get: function get() {
                             return Default
                         }
@@ -2899,10 +2899,10 @@
             }
 
             var config = $$$1(target).data(DATA_KEY)
-                ? "toggle"
+                ? 'toggle'
                 : _objectSpread({}, $$$1(target).data(), $$$1(this).data())
 
-            if (this.tagName === "A" || this.tagName === "AREA") {
+            if (this.tagName === 'A' || this.tagName === 'AREA') {
                 event.preventDefault()
             }
 
@@ -2913,7 +2913,7 @@
                 }
 
                 $target.one(Event.HIDDEN, function() {
-                    if ($$$1(_this10).is(":visible")) {
+                    if ($$$1(_this10).is(':visible')) {
                         _this10.focus()
                     }
                 })
@@ -2951,36 +2951,36 @@
          * Constants
          * ------------------------------------------------------------------------
          */
-        var NAME = "tooltip"
-        var VERSION = "4.1.1"
-        var DATA_KEY = "bs.tooltip"
-        var EVENT_KEY = "." + DATA_KEY
+        var NAME = 'tooltip'
+        var VERSION = '4.1.1'
+        var DATA_KEY = 'bs.tooltip'
+        var EVENT_KEY = '.' + DATA_KEY
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME]
-        var CLASS_PREFIX = "bs-tooltip"
+        var CLASS_PREFIX = 'bs-tooltip'
         var BSCLS_PREFIX_REGEX = new RegExp(
-            "(^|\\s)" + CLASS_PREFIX + "\\S+",
-            "g"
+            '(^|\\s)' + CLASS_PREFIX + '\\S+',
+            'g'
         )
         var DefaultType = {
-            animation: "boolean",
-            template: "string",
-            title: "(string|element|function)",
-            trigger: "string",
-            delay: "(number|object)",
-            html: "boolean",
-            selector: "(string|boolean)",
-            placement: "(string|function)",
-            offset: "(number|string)",
-            container: "(string|element|boolean)",
-            fallbackPlacement: "(string|array)",
-            boundary: "(string|element)"
+            animation: 'boolean',
+            template: 'string',
+            title: '(string|element|function)',
+            trigger: 'string',
+            delay: '(number|object)',
+            html: 'boolean',
+            selector: '(string|boolean)',
+            placement: '(string|function)',
+            offset: '(number|string)',
+            container: '(string|element|boolean)',
+            fallbackPlacement: '(string|array)',
+            boundary: '(string|element)'
         }
         var AttachmentMap = {
-            AUTO: "auto",
-            TOP: "top",
-            RIGHT: "right",
-            BOTTOM: "bottom",
-            LEFT: "left"
+            AUTO: 'auto',
+            TOP: 'top',
+            RIGHT: 'right',
+            BOTTOM: 'bottom',
+            LEFT: 'left'
         }
         var Default = {
             animation: true,
@@ -2988,47 +2988,47 @@
                 '<div class="tooltip" role="tooltip">' +
                 '<div class="arrow"></div>' +
                 '<div class="tooltip-inner"></div></div>',
-            trigger: "hover focus",
-            title: "",
+            trigger: 'hover focus',
+            title: '',
             delay: 0,
             html: false,
             selector: false,
-            placement: "top",
+            placement: 'top',
             offset: 0,
             container: false,
-            fallbackPlacement: "flip",
-            boundary: "scrollParent"
+            fallbackPlacement: 'flip',
+            boundary: 'scrollParent'
         }
         var HoverState = {
-            SHOW: "show",
-            OUT: "out"
+            SHOW: 'show',
+            OUT: 'out'
         }
         var Event = {
-            HIDE: "hide" + EVENT_KEY,
-            HIDDEN: "hidden" + EVENT_KEY,
-            SHOW: "show" + EVENT_KEY,
-            SHOWN: "shown" + EVENT_KEY,
-            INSERTED: "inserted" + EVENT_KEY,
-            CLICK: "click" + EVENT_KEY,
-            FOCUSIN: "focusin" + EVENT_KEY,
-            FOCUSOUT: "focusout" + EVENT_KEY,
-            MOUSEENTER: "mouseenter" + EVENT_KEY,
-            MOUSELEAVE: "mouseleave" + EVENT_KEY
+            HIDE: 'hide' + EVENT_KEY,
+            HIDDEN: 'hidden' + EVENT_KEY,
+            SHOW: 'show' + EVENT_KEY,
+            SHOWN: 'shown' + EVENT_KEY,
+            INSERTED: 'inserted' + EVENT_KEY,
+            CLICK: 'click' + EVENT_KEY,
+            FOCUSIN: 'focusin' + EVENT_KEY,
+            FOCUSOUT: 'focusout' + EVENT_KEY,
+            MOUSEENTER: 'mouseenter' + EVENT_KEY,
+            MOUSELEAVE: 'mouseleave' + EVENT_KEY
         }
         var ClassName = {
-            FADE: "fade",
-            SHOW: "show"
+            FADE: 'fade',
+            SHOW: 'show'
         }
         var Selector = {
-            TOOLTIP: ".tooltip",
-            TOOLTIP_INNER: ".tooltip-inner",
-            ARROW: ".arrow"
+            TOOLTIP: '.tooltip',
+            TOOLTIP_INNER: '.tooltip-inner',
+            ARROW: '.arrow'
         }
         var Trigger = {
-            HOVER: "hover",
-            FOCUS: "focus",
-            CLICK: "click",
-            MANUAL: "manual"
+            HOVER: 'hover',
+            FOCUS: 'focus',
+            CLICK: 'click',
+            MANUAL: 'manual'
             /**
              * ------------------------------------------------------------------------
              * Class Definition
@@ -3044,15 +3044,15 @@
                      * Check for Popper dependency
                      * Popper - https://popper.js.org
                      */
-                    if (typeof Popper === "undefined") {
+                    if (typeof Popper === 'undefined') {
                         throw new TypeError(
-                            "Bootstrap tooltips require Popper.js (https://popper.js.org)"
+                            'Bootstrap tooltips require Popper.js (https://popper.js.org)'
                         )
                     } // private
 
                     this._isEnabled = true
                     this._timeout = 0
-                    this._hoverState = ""
+                    this._hoverState = ''
                     this._activeTrigger = {}
                     this._popper = null // Protected
 
@@ -3121,8 +3121,8 @@
                     $$$1.removeData(this.element, this.constructor.DATA_KEY)
                     $$$1(this.element).off(this.constructor.EVENT_KEY)
                     $$$1(this.element)
-                        .closest(".modal")
-                        .off("hide.bs.modal")
+                        .closest('.modal')
+                        .off('hide.bs.modal')
 
                     if (this.tip) {
                         $$$1(this.tip).remove()
@@ -3146,8 +3146,8 @@
                 _proto.show = function show() {
                     var _this = this
 
-                    if ($$$1(this.element).css("display") === "none") {
-                        throw new Error("Please use show on visible elements")
+                    if ($$$1(this.element).css('display') === 'none') {
+                        throw new Error('Please use show on visible elements')
                     }
 
                     var showEvent = $$$1.Event(this.constructor.Event.SHOW)
@@ -3165,8 +3165,8 @@
 
                         var tip = this.getTipElement()
                         var tipId = Util.getUID(this.constructor.NAME)
-                        tip.setAttribute("id", tipId)
-                        this.element.setAttribute("aria-describedby", tipId)
+                        tip.setAttribute('id', tipId)
+                        this.element.setAttribute('aria-describedby', tipId)
                         this.setContent()
 
                         if (this.config.animation) {
@@ -3174,7 +3174,7 @@
                         }
 
                         var placement =
-                            typeof this.config.placement === "function"
+                            typeof this.config.placement === 'function'
                                 ? this.config.placement.call(
                                       this,
                                       tip,
@@ -3233,10 +3233,10 @@
                         // only needed because of broken event delegation on iOS
                         // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
-                        if ("ontouchstart" in document.documentElement) {
+                        if ('ontouchstart' in document.documentElement) {
                             $$$1(document.body)
                                 .children()
-                                .on("mouseover", null, $$$1.noop)
+                                .on('mouseover', null, $$$1.noop)
                         }
 
                         var complete = function complete() {
@@ -3284,7 +3284,7 @@
 
                         _this2._cleanTipClass()
 
-                        _this2.element.removeAttribute("aria-describedby")
+                        _this2.element.removeAttribute('aria-describedby')
 
                         $$$1(_this2.element).trigger(
                             _this2.constructor.Event.HIDDEN
@@ -3308,10 +3308,10 @@
                     $$$1(tip).removeClass(ClassName.SHOW) // If this is a touch-enabled device we remove the extra
                     // empty mouseover listeners we added for iOS support
 
-                    if ("ontouchstart" in document.documentElement) {
+                    if ('ontouchstart' in document.documentElement) {
                         $$$1(document.body)
                             .children()
-                            .off("mouseover", null, $$$1.noop)
+                            .off('mouseover', null, $$$1.noop)
                     }
 
                     this._activeTrigger[Trigger.CLICK] = false
@@ -3329,7 +3329,7 @@
                         complete()
                     }
 
-                    this._hoverState = ""
+                    this._hoverState = ''
                 }
 
                 _proto.update = function update() {
@@ -3346,7 +3346,7 @@
                     attachment
                 ) {
                     $$$1(this.getTipElement()).addClass(
-                        CLASS_PREFIX + "-" + attachment
+                        CLASS_PREFIX + '-' + attachment
                     )
                 }
 
@@ -3361,7 +3361,7 @@
                         $tip.find(Selector.TOOLTIP_INNER),
                         this.getTitle()
                     )
-                    $tip.removeClass(ClassName.FADE + " " + ClassName.SHOW)
+                    $tip.removeClass(ClassName.FADE + ' ' + ClassName.SHOW)
                 }
 
                 _proto.setElementContent = function setElementContent(
@@ -3371,7 +3371,7 @@
                     var html = this.config.html
 
                     if (
-                        typeof content === "object" &&
+                        typeof content === 'object' &&
                         (content.nodeType || content.jquery)
                     ) {
                         // Content is a DOM node or a jQuery
@@ -3387,16 +3387,16 @@
                             $element.text($$$1(content).text())
                         }
                     } else {
-                        $element[html ? "html" : "text"](content)
+                        $element[html ? 'html' : 'text'](content)
                     }
                 }
 
                 _proto.getTitle = function getTitle() {
-                    var title = this.element.getAttribute("data-original-title")
+                    var title = this.element.getAttribute('data-original-title')
 
                     if (!title) {
                         title =
-                            typeof this.config.title === "function"
+                            typeof this.config.title === 'function'
                                 ? this.config.title.call(this.element)
                                 : this.config.title
                     }
@@ -3411,9 +3411,9 @@
                 _proto._setListeners = function _setListeners() {
                     var _this3 = this
 
-                    var triggers = this.config.trigger.split(" ")
+                    var triggers = this.config.trigger.split(' ')
                     triggers.forEach(function(trigger) {
-                        if (trigger === "click") {
+                        if (trigger === 'click') {
                             $$$1(_this3.element).on(
                                 _this3.constructor.Event.CLICK,
                                 _this3.config.selector,
@@ -3444,16 +3444,16 @@
                         }
 
                         $$$1(_this3.element)
-                            .closest(".modal")
-                            .on("hide.bs.modal", function() {
+                            .closest('.modal')
+                            .on('hide.bs.modal', function() {
                                 return _this3.hide()
                             })
                     })
 
                     if (this.config.selector) {
                         this.config = _objectSpread({}, this.config, {
-                            trigger: "manual",
-                            selector: ""
+                            trigger: 'manual',
+                            selector: ''
                         })
                     } else {
                         this._fixTitle()
@@ -3462,18 +3462,18 @@
 
                 _proto._fixTitle = function _fixTitle() {
                     var titleType = typeof this.element.getAttribute(
-                        "data-original-title"
+                        'data-original-title'
                     )
 
                     if (
-                        this.element.getAttribute("title") ||
-                        titleType !== "string"
+                        this.element.getAttribute('title') ||
+                        titleType !== 'string'
                     ) {
                         this.element.setAttribute(
-                            "data-original-title",
-                            this.element.getAttribute("title") || ""
+                            'data-original-title',
+                            this.element.getAttribute('title') || ''
                         )
-                        this.element.setAttribute("title", "")
+                        this.element.setAttribute('title', '')
                     }
                 }
 
@@ -3491,7 +3491,7 @@
 
                     if (event) {
                         context._activeTrigger[
-                            event.type === "focusin"
+                            event.type === 'focusin'
                                 ? Trigger.FOCUS
                                 : Trigger.HOVER
                         ] = true
@@ -3536,7 +3536,7 @@
 
                     if (event) {
                         context._activeTrigger[
-                            event.type === "focusout"
+                            event.type === 'focusout'
                                 ? Trigger.FOCUS
                                 : Trigger.HOVER
                         ] = false
@@ -3576,21 +3576,21 @@
                         {},
                         this.constructor.Default,
                         $$$1(this.element).data(),
-                        typeof config === "object" && config ? config : {}
+                        typeof config === 'object' && config ? config : {}
                     )
 
-                    if (typeof config.delay === "number") {
+                    if (typeof config.delay === 'number') {
                         config.delay = {
                             show: config.delay,
                             hide: config.delay
                         }
                     }
 
-                    if (typeof config.title === "number") {
+                    if (typeof config.title === 'number') {
                         config.title = config.title.toString()
                     }
 
-                    if (typeof config.content === "number") {
+                    if (typeof config.content === 'number') {
                         config.content = config.content.toString()
                     }
 
@@ -3621,10 +3621,10 @@
 
                 _proto._cleanTipClass = function _cleanTipClass() {
                     var $tip = $$$1(this.getTipElement())
-                    var tabClass = $tip.attr("class").match(BSCLS_PREFIX_REGEX)
+                    var tabClass = $tip.attr('class').match(BSCLS_PREFIX_REGEX)
 
                     if (tabClass !== null && tabClass.length > 0) {
-                        $tip.removeClass(tabClass.join(""))
+                        $tip.removeClass(tabClass.join(''))
                     }
                 }
 
@@ -3640,7 +3640,7 @@
                     var tip = this.getTipElement()
                     var initConfigAnimation = this.config.animation
 
-                    if (tip.getAttribute("x-placement") !== null) {
+                    if (tip.getAttribute('x-placement') !== null) {
                         return
                     }
 
@@ -3655,7 +3655,7 @@
                     return this.each(function() {
                         var data = $$$1(this).data(DATA_KEY)
 
-                        var _config = typeof config === "object" && config
+                        var _config = typeof config === 'object' && config
 
                         if (!data && /dispose|hide/.test(config)) {
                             return
@@ -3666,8 +3666,8 @@
                             $$$1(this).data(DATA_KEY, data)
                         }
 
-                        if (typeof config === "string") {
-                            if (typeof data[config] === "undefined") {
+                        if (typeof config === 'string') {
+                            if (typeof data[config] === 'undefined') {
                                 throw new TypeError(
                                     'No method named "' + config + '"'
                                 )
@@ -3680,43 +3680,43 @@
 
                 _createClass(Tooltip, null, [
                     {
-                        key: "VERSION",
+                        key: 'VERSION',
                         get: function get() {
                             return VERSION
                         }
                     },
                     {
-                        key: "Default",
+                        key: 'Default',
                         get: function get() {
                             return Default
                         }
                     },
                     {
-                        key: "NAME",
+                        key: 'NAME',
                         get: function get() {
                             return NAME
                         }
                     },
                     {
-                        key: "DATA_KEY",
+                        key: 'DATA_KEY',
                         get: function get() {
                             return DATA_KEY
                         }
                     },
                     {
-                        key: "Event",
+                        key: 'Event',
                         get: function get() {
                             return Event
                         }
                     },
                     {
-                        key: "EVENT_KEY",
+                        key: 'EVENT_KEY',
                         get: function get() {
                             return EVENT_KEY
                         }
                     },
                     {
-                        key: "DefaultType",
+                        key: 'DefaultType',
                         get: function get() {
                             return DefaultType
                         }
@@ -3755,21 +3755,21 @@
          * Constants
          * ------------------------------------------------------------------------
          */
-        var NAME = "popover"
-        var VERSION = "4.1.1"
-        var DATA_KEY = "bs.popover"
-        var EVENT_KEY = "." + DATA_KEY
+        var NAME = 'popover'
+        var VERSION = '4.1.1'
+        var DATA_KEY = 'bs.popover'
+        var EVENT_KEY = '.' + DATA_KEY
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME]
-        var CLASS_PREFIX = "bs-popover"
+        var CLASS_PREFIX = 'bs-popover'
         var BSCLS_PREFIX_REGEX = new RegExp(
-            "(^|\\s)" + CLASS_PREFIX + "\\S+",
-            "g"
+            '(^|\\s)' + CLASS_PREFIX + '\\S+',
+            'g'
         )
 
         var Default = _objectSpread({}, Tooltip.Default, {
-            placement: "right",
-            trigger: "click",
-            content: "",
+            placement: 'right',
+            trigger: 'click',
+            content: '',
             template:
                 '<div class="popover" role="tooltip">' +
                 '<div class="arrow"></div>' +
@@ -3778,28 +3778,28 @@
         })
 
         var DefaultType = _objectSpread({}, Tooltip.DefaultType, {
-            content: "(string|element|function)"
+            content: '(string|element|function)'
         })
 
         var ClassName = {
-            FADE: "fade",
-            SHOW: "show"
+            FADE: 'fade',
+            SHOW: 'show'
         }
         var Selector = {
-            TITLE: ".popover-header",
-            CONTENT: ".popover-body"
+            TITLE: '.popover-header',
+            CONTENT: '.popover-body'
         }
         var Event = {
-            HIDE: "hide" + EVENT_KEY,
-            HIDDEN: "hidden" + EVENT_KEY,
-            SHOW: "show" + EVENT_KEY,
-            SHOWN: "shown" + EVENT_KEY,
-            INSERTED: "inserted" + EVENT_KEY,
-            CLICK: "click" + EVENT_KEY,
-            FOCUSIN: "focusin" + EVENT_KEY,
-            FOCUSOUT: "focusout" + EVENT_KEY,
-            MOUSEENTER: "mouseenter" + EVENT_KEY,
-            MOUSELEAVE: "mouseleave" + EVENT_KEY
+            HIDE: 'hide' + EVENT_KEY,
+            HIDDEN: 'hidden' + EVENT_KEY,
+            SHOW: 'show' + EVENT_KEY,
+            SHOWN: 'shown' + EVENT_KEY,
+            INSERTED: 'inserted' + EVENT_KEY,
+            CLICK: 'click' + EVENT_KEY,
+            FOCUSIN: 'focusin' + EVENT_KEY,
+            FOCUSOUT: 'focusout' + EVENT_KEY,
+            MOUSEENTER: 'mouseenter' + EVENT_KEY,
+            MOUSELEAVE: 'mouseleave' + EVENT_KEY
             /**
              * ------------------------------------------------------------------------
              * Class Definition
@@ -3827,7 +3827,7 @@
                     attachment
                 ) {
                     $$$1(this.getTipElement()).addClass(
-                        CLASS_PREFIX + "-" + attachment
+                        CLASS_PREFIX + '-' + attachment
                     )
                 }
 
@@ -3846,27 +3846,27 @@
 
                     var content = this._getContent()
 
-                    if (typeof content === "function") {
+                    if (typeof content === 'function') {
                         content = content.call(this.element)
                     }
 
                     this.setElementContent($tip.find(Selector.CONTENT), content)
-                    $tip.removeClass(ClassName.FADE + " " + ClassName.SHOW)
+                    $tip.removeClass(ClassName.FADE + ' ' + ClassName.SHOW)
                 } // Private
 
                 _proto._getContent = function _getContent() {
                     return (
-                        this.element.getAttribute("data-content") ||
+                        this.element.getAttribute('data-content') ||
                         this.config.content
                     )
                 }
 
                 _proto._cleanTipClass = function _cleanTipClass() {
                     var $tip = $$$1(this.getTipElement())
-                    var tabClass = $tip.attr("class").match(BSCLS_PREFIX_REGEX)
+                    var tabClass = $tip.attr('class').match(BSCLS_PREFIX_REGEX)
 
                     if (tabClass !== null && tabClass.length > 0) {
-                        $tip.removeClass(tabClass.join(""))
+                        $tip.removeClass(tabClass.join(''))
                     }
                 } // Static
 
@@ -3874,7 +3874,7 @@
                     return this.each(function() {
                         var data = $$$1(this).data(DATA_KEY)
 
-                        var _config = typeof config === "object" ? config : null
+                        var _config = typeof config === 'object' ? config : null
 
                         if (!data && /destroy|hide/.test(config)) {
                             return
@@ -3885,8 +3885,8 @@
                             $$$1(this).data(DATA_KEY, data)
                         }
 
-                        if (typeof config === "string") {
-                            if (typeof data[config] === "undefined") {
+                        if (typeof config === 'string') {
+                            if (typeof data[config] === 'undefined') {
                                 throw new TypeError(
                                     'No method named "' + config + '"'
                                 )
@@ -3899,44 +3899,44 @@
 
                 _createClass(Popover, null, [
                     {
-                        key: "VERSION",
+                        key: 'VERSION',
                         // Getters
                         get: function get() {
                             return VERSION
                         }
                     },
                     {
-                        key: "Default",
+                        key: 'Default',
                         get: function get() {
                             return Default
                         }
                     },
                     {
-                        key: "NAME",
+                        key: 'NAME',
                         get: function get() {
                             return NAME
                         }
                     },
                     {
-                        key: "DATA_KEY",
+                        key: 'DATA_KEY',
                         get: function get() {
                             return DATA_KEY
                         }
                     },
                     {
-                        key: "Event",
+                        key: 'Event',
                         get: function get() {
                             return Event
                         }
                     },
                     {
-                        key: "EVENT_KEY",
+                        key: 'EVENT_KEY',
                         get: function get() {
                             return EVENT_KEY
                         }
                     },
                     {
-                        key: "DefaultType",
+                        key: 'DefaultType',
                         get: function get() {
                             return DefaultType
                         }
@@ -3975,46 +3975,46 @@
          * Constants
          * ------------------------------------------------------------------------
          */
-        var NAME = "scrollspy"
-        var VERSION = "4.1.1"
-        var DATA_KEY = "bs.scrollspy"
-        var EVENT_KEY = "." + DATA_KEY
-        var DATA_API_KEY = ".data-api"
+        var NAME = 'scrollspy'
+        var VERSION = '4.1.1'
+        var DATA_KEY = 'bs.scrollspy'
+        var EVENT_KEY = '.' + DATA_KEY
+        var DATA_API_KEY = '.data-api'
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME]
         var Default = {
             offset: 10,
-            method: "auto",
-            target: ""
+            method: 'auto',
+            target: ''
         }
         var DefaultType = {
-            offset: "number",
-            method: "string",
-            target: "(string|element)"
+            offset: 'number',
+            method: 'string',
+            target: '(string|element)'
         }
         var Event = {
-            ACTIVATE: "activate" + EVENT_KEY,
-            SCROLL: "scroll" + EVENT_KEY,
-            LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY
+            ACTIVATE: 'activate' + EVENT_KEY,
+            SCROLL: 'scroll' + EVENT_KEY,
+            LOAD_DATA_API: 'load' + EVENT_KEY + DATA_API_KEY
         }
         var ClassName = {
-            DROPDOWN_ITEM: "dropdown-item",
-            DROPDOWN_MENU: "dropdown-menu",
-            ACTIVE: "active"
+            DROPDOWN_ITEM: 'dropdown-item',
+            DROPDOWN_MENU: 'dropdown-menu',
+            ACTIVE: 'active'
         }
         var Selector = {
             DATA_SPY: '[data-spy="scroll"]',
-            ACTIVE: ".active",
-            NAV_LIST_GROUP: ".nav, .list-group",
-            NAV_LINKS: ".nav-link",
-            NAV_ITEMS: ".nav-item",
-            LIST_ITEMS: ".list-group-item",
-            DROPDOWN: ".dropdown",
-            DROPDOWN_ITEMS: ".dropdown-item",
-            DROPDOWN_TOGGLE: ".dropdown-toggle"
+            ACTIVE: '.active',
+            NAV_LIST_GROUP: '.nav, .list-group',
+            NAV_LINKS: '.nav-link',
+            NAV_ITEMS: '.nav-item',
+            LIST_ITEMS: '.list-group-item',
+            DROPDOWN: '.dropdown',
+            DROPDOWN_ITEMS: '.dropdown-item',
+            DROPDOWN_TOGGLE: '.dropdown-toggle'
         }
         var OffsetMethod = {
-            OFFSET: "offset",
-            POSITION: "position"
+            OFFSET: 'offset',
+            POSITION: 'position'
             /**
              * ------------------------------------------------------------------------
              * Class Definition
@@ -4030,18 +4030,18 @@
 
                     this._element = element
                     this._scrollElement =
-                        element.tagName === "BODY" ? window : element
+                        element.tagName === 'BODY' ? window : element
                     this._config = this._getConfig(config)
                     this._selector =
                         this._config.target +
-                        " " +
+                        ' ' +
                         Selector.NAV_LINKS +
-                        "," +
+                        ',' +
                         (this._config.target +
-                            " " +
+                            ' ' +
                             Selector.LIST_ITEMS +
-                            ",") +
-                        (this._config.target + " " + Selector.DROPDOWN_ITEMS)
+                            ',') +
+                        (this._config.target + ' ' + Selector.DROPDOWN_ITEMS)
                     this._offsets = []
                     this._targets = []
                     this._activeTarget = null
@@ -4065,7 +4065,7 @@
                             ? OffsetMethod.OFFSET
                             : OffsetMethod.POSITION
                     var offsetMethod =
-                        this._config.method === "auto"
+                        this._config.method === 'auto'
                             ? autoMethod
                             : this._config.method
                     var offsetBase =
@@ -4132,18 +4132,18 @@
                     config = _objectSpread(
                         {},
                         Default,
-                        typeof config === "object" && config ? config : {}
+                        typeof config === 'object' && config ? config : {}
                     )
 
-                    if (typeof config.target !== "string") {
-                        var id = $$$1(config.target).attr("id")
+                    if (typeof config.target !== 'string') {
+                        var id = $$$1(config.target).attr('id')
 
                         if (!id) {
                             id = Util.getUID(NAME)
-                            $$$1(config.target).attr("id", id)
+                            $$$1(config.target).attr('id', id)
                         }
 
-                        config.target = "#" + id
+                        config.target = '#' + id
                     }
 
                     Util.typeCheckConfig(NAME, config, DefaultType)
@@ -4212,7 +4212,7 @@
                         var isActiveTarget =
                             this._activeTarget !== this._targets[i] &&
                             scrollTop >= this._offsets[i] &&
-                            (typeof this._offsets[i + 1] === "undefined" ||
+                            (typeof this._offsets[i + 1] === 'undefined' ||
                                 scrollTop < this._offsets[i + 1])
 
                         if (isActiveTarget) {
@@ -4226,7 +4226,7 @@
 
                     this._clear()
 
-                    var queries = this._selector.split(",") // eslint-disable-next-line arrow-body-style
+                    var queries = this._selector.split(',') // eslint-disable-next-line arrow-body-style
 
                     queries = queries.map(function(selector) {
                         return (
@@ -4237,7 +4237,7 @@
                             (selector + '[href="' + target + '"]')
                         )
                     })
-                    var $link = $$$1(queries.join(","))
+                    var $link = $$$1(queries.join(','))
 
                     if ($link.hasClass(ClassName.DROPDOWN_ITEM)) {
                         $link
@@ -4253,7 +4253,7 @@
                         $link
                             .parents(Selector.NAV_LIST_GROUP)
                             .prev(
-                                Selector.NAV_LINKS + ", " + Selector.LIST_ITEMS
+                                Selector.NAV_LINKS + ', ' + Selector.LIST_ITEMS
                             )
                             .addClass(ClassName.ACTIVE) // Handle special case when .nav-link is inside .nav-item
 
@@ -4279,15 +4279,15 @@
                     return this.each(function() {
                         var data = $$$1(this).data(DATA_KEY)
 
-                        var _config = typeof config === "object" && config
+                        var _config = typeof config === 'object' && config
 
                         if (!data) {
                             data = new ScrollSpy(this, _config)
                             $$$1(this).data(DATA_KEY, data)
                         }
 
-                        if (typeof config === "string") {
-                            if (typeof data[config] === "undefined") {
+                        if (typeof config === 'string') {
+                            if (typeof data[config] === 'undefined') {
                                 throw new TypeError(
                                     'No method named "' + config + '"'
                                 )
@@ -4300,13 +4300,13 @@
 
                 _createClass(ScrollSpy, null, [
                     {
-                        key: "VERSION",
+                        key: 'VERSION',
                         get: function get() {
                             return VERSION
                         }
                     },
                     {
-                        key: "Default",
+                        key: 'Default',
                         get: function get() {
                             return Default
                         }
@@ -4360,35 +4360,35 @@
          * Constants
          * ------------------------------------------------------------------------
          */
-        var NAME = "tab"
-        var VERSION = "4.1.1"
-        var DATA_KEY = "bs.tab"
-        var EVENT_KEY = "." + DATA_KEY
-        var DATA_API_KEY = ".data-api"
+        var NAME = 'tab'
+        var VERSION = '4.1.1'
+        var DATA_KEY = 'bs.tab'
+        var EVENT_KEY = '.' + DATA_KEY
+        var DATA_API_KEY = '.data-api'
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME]
         var Event = {
-            HIDE: "hide" + EVENT_KEY,
-            HIDDEN: "hidden" + EVENT_KEY,
-            SHOW: "show" + EVENT_KEY,
-            SHOWN: "shown" + EVENT_KEY,
-            CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
+            HIDE: 'hide' + EVENT_KEY,
+            HIDDEN: 'hidden' + EVENT_KEY,
+            SHOW: 'show' + EVENT_KEY,
+            SHOWN: 'shown' + EVENT_KEY,
+            CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
         }
         var ClassName = {
-            DROPDOWN_MENU: "dropdown-menu",
-            ACTIVE: "active",
-            DISABLED: "disabled",
-            FADE: "fade",
-            SHOW: "show"
+            DROPDOWN_MENU: 'dropdown-menu',
+            ACTIVE: 'active',
+            DISABLED: 'disabled',
+            FADE: 'fade',
+            SHOW: 'show'
         }
         var Selector = {
-            DROPDOWN: ".dropdown",
-            NAV_LIST_GROUP: ".nav, .list-group",
-            ACTIVE: ".active",
-            ACTIVE_UL: "> li > .active",
+            DROPDOWN: '.dropdown',
+            NAV_LIST_GROUP: '.nav, .list-group',
+            ACTIVE: '.active',
+            ACTIVE_UL: '> li > .active',
             DATA_TOGGLE:
                 '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
-            DROPDOWN_TOGGLE: ".dropdown-toggle",
-            DROPDOWN_ACTIVE_CHILD: "> .dropdown-menu .active"
+            DROPDOWN_TOGGLE: '.dropdown-toggle',
+            DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
             /**
              * ------------------------------------------------------------------------
              * Class Definition
@@ -4428,7 +4428,7 @@
 
                     if (listElement) {
                         var itemSelector =
-                            listElement.nodeName === "UL"
+                            listElement.nodeName === 'UL'
                                 ? Selector.ACTIVE_UL
                                 : Selector.ACTIVE
                         previous = $$$1.makeArray(
@@ -4495,7 +4495,7 @@
 
                     var activeElements
 
-                    if (container.nodeName === "UL") {
+                    if (container.nodeName === 'UL') {
                         activeElements = $$$1(container).find(
                             Selector.ACTIVE_UL
                         )
@@ -4538,7 +4538,7 @@
                 ) {
                     if (active) {
                         $$$1(active).removeClass(
-                            ClassName.SHOW + " " + ClassName.ACTIVE
+                            ClassName.SHOW + ' ' + ClassName.ACTIVE
                         )
                         var dropdownChild = $$$1(active.parentNode).find(
                             Selector.DROPDOWN_ACTIVE_CHILD
@@ -4548,15 +4548,15 @@
                             $$$1(dropdownChild).removeClass(ClassName.ACTIVE)
                         }
 
-                        if (active.getAttribute("role") === "tab") {
-                            active.setAttribute("aria-selected", false)
+                        if (active.getAttribute('role') === 'tab') {
+                            active.setAttribute('aria-selected', false)
                         }
                     }
 
                     $$$1(element).addClass(ClassName.ACTIVE)
 
-                    if (element.getAttribute("role") === "tab") {
-                        element.setAttribute("aria-selected", true)
+                    if (element.getAttribute('role') === 'tab') {
+                        element.setAttribute('aria-selected', true)
                     }
 
                     Util.reflow(element)
@@ -4578,7 +4578,7 @@
                                 .addClass(ClassName.ACTIVE)
                         }
 
-                        element.setAttribute("aria-expanded", true)
+                        element.setAttribute('aria-expanded', true)
                     }
 
                     if (callback) {
@@ -4596,8 +4596,8 @@
                             $this.data(DATA_KEY, data)
                         }
 
-                        if (typeof config === "string") {
-                            if (typeof data[config] === "undefined") {
+                        if (typeof config === 'string') {
+                            if (typeof data[config] === 'undefined') {
                                 throw new TypeError(
                                     'No method named "' + config + '"'
                                 )
@@ -4610,7 +4610,7 @@
 
                 _createClass(Tab, null, [
                     {
-                        key: "VERSION",
+                        key: 'VERSION',
                         get: function get() {
                             return VERSION
                         }
@@ -4630,7 +4630,7 @@
         ) {
             event.preventDefault()
 
-            Tab._jQueryInterface.call($$$1(this), "show")
+            Tab._jQueryInterface.call($$$1(this), 'show')
         })
         /**
          * ------------------------------------------------------------------------
@@ -4657,13 +4657,13 @@
      */
 
     ;(function($$$1) {
-        if (typeof $$$1 === "undefined") {
+        if (typeof $$$1 === 'undefined') {
             throw new TypeError(
                 "Bootstrap's JavaScript requires jQuery. jQuery must be included before Bootstrap's JavaScript."
             )
         }
 
-        var version = $$$1.fn.jquery.split(" ")[0].split(".")
+        var version = $$$1.fn.jquery.split(' ')[0].split('.')
         var minMajor = 1
         var ltMajor = 2
         var minMinor = 9
@@ -4695,6 +4695,6 @@
     exports.Tab = Tab
     exports.Tooltip = Tooltip
 
-    Object.defineProperty(exports, "__esModule", { value: true })
+    Object.defineProperty(exports, '__esModule', { value: true })
 })
 //# sourceMappingURL=bootstrap.js.map

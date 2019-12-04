@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "jest",
-        "prettier": "prettier --write './**/*.{js,json}'"
+        "prettier": "prettier --write './**/*.{js,json,vue}'"
     },
     "keywords": [],
     "author": "",

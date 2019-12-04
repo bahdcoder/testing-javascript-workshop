@@ -1,4 +1,4 @@
-const User = require("../database/models/User")
+const User = require('../database/models/User')
 
 module.exports = (req, res) => {
     User.create(req.body, (error, user) => {
@@ -7,10 +7,10 @@ module.exports = (req, res) => {
                 key => error.errors[key].message
             )
 
-            req.flash("registrationErrors", registrationErrors)
-            req.flash("data", req.body)
-            return res.redirect("/auth/register")
+            req.flash('registrationErrors', registrationErrors)
+            req.flash('data', req.body)
+            return res.redirect('/auth/register')
         }
-        res.redirect("/")
+        res.redirect('/')
     })
 }

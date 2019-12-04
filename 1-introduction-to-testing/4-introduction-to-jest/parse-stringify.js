@@ -1,13 +1,13 @@
 // takes in ?by=kati-frantz and returns { by: 'kati-frantz' }
 const parse = queryString => {
-    if (queryString[0] === "?") {
+    if (queryString[0] === '?') {
         queryString = queryString.substring(1)
     }
-    let queries = queryString.split("&")
+    let queries = queryString.split('&')
     const params = {}
 
     queries.forEach(query => {
-        const queryObject = query.split("=")
+        const queryObject = query.split('=')
         params[queryObject[0]] = queryObject[1]
     })
 
@@ -25,7 +25,7 @@ const removeEmpty = obj => {
 // takes in { by: 'kati-frantz' } and returns ?by=kati-frantz
 const stringify = queryObject => {
     queryObject = removeEmpty(queryObject)
-    let queryString = ""
+    let queryString = ''
     for (let element of Object.keys(queryObject)) {
         queryString = `${queryString}&${element}=${queryObject[element]}`
     }

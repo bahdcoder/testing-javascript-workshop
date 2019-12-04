@@ -1,5 +1,5 @@
-const bcrypt = require("bcryptjs")
-const User = require("../database/models/User")
+const bcrypt = require('bcryptjs')
+const User = require('../database/models/User')
 
 module.exports = (req, res) => {
     const { email, password } = req.body
@@ -10,12 +10,12 @@ module.exports = (req, res) => {
             const same = bcrypt.compareSync(password, user.password)
             if (same) {
                 req.session.userId = user._id
-                res.redirect("/")
+                res.redirect('/')
             } else {
-                res.redirect("/auth/login")
+                res.redirect('/auth/login')
             }
         } else {
-            return res.redirect("/auth/login")
+            return res.redirect('/auth/login')
         }
     })
 }

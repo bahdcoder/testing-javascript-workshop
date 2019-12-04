@@ -1,5 +1,5 @@
-const path = require("path")
-const Post = require("../database/models/Post")
+const path = require('path')
+const Post = require('../database/models/Post')
 
 module.exports = (req, res) => {
     Post.create(
@@ -8,7 +8,7 @@ module.exports = (req, res) => {
             author: req.session.userId
         },
         (error, post) => {
-            res.redirect("/")
+            res.redirect('/')
         }
     )
 }
