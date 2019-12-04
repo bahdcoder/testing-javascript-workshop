@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "jest",
+        "setup": "node setup",
         "prettier": "prettier --write './**/*.{js,json,vue}'"
     },
     "keywords": [],
@@ -15,6 +16,8 @@
         "prettier": "^1.19.1"
     },
     "dependencies": {
-        "bcryptjs": "^2.4.3"
+        "bcryptjs": "^2.4.3",
+        "chalk": "^3.0.0",
+        "ora": "^4.0.3"
     }
 }
