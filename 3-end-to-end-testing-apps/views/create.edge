@@ -1,0 +1,60 @@
+@layout('layouts.app')
+
+@section('content')
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('/img/contact-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading">
+          <h1>New Post</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <form action="/posts/store" method="POST" encType="multipart/form-data">
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Title</label>
+            <input type="text" name="title" placeholder="Title" class="form-control">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Subtitle</label>
+            <input type="text" name="subtitle" placeholder="Subtitle" class="form-control">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Content</label>
+            <textarea id="content" name="content" placeholder="Content ..." cols="30" rows="10" class="form-control"></textarea>
+          </div>
+        </div>
+        <div class="form-group my-4 text-center">
+          <button class="btn btn-primary">Create Post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+@endsection
+
+
+
+@section('styles')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
+@endsection
+
+@section('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
+<script>
+  $('#content').summernote();
+</script>
+@endsection
