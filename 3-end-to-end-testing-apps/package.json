@@ -18,7 +18,7 @@
         "cypress": "^3.7.0",
         "dotenv": "^6.0.0",
         "edge.js": "^1.1.4",
-        "express": "^4.16.3",
+        "express": "^4.17.3",
         "express-edge": "^1.0.0",
         "express-session": "^1.15.6",
         "mongoose": "^5.1.6"
